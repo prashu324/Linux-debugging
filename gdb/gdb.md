@@ -73,7 +73,7 @@ gdb ./a.out
 
 `help` command provides more information about a command. In case of confusion, just use `help`.
 
-```gdb
+```bash
 (gdb) help <command>
 ```
 
@@ -85,12 +85,12 @@ Whenever gdb gets to a breakpoint it halts execution of your program and allows 
 
 Simplest way of putting a breakpoint is using the function name or a line number.
 
-```gdb
+```bash
 (gdb) b <line no>
 (gdb) b 3
 ```
 
-```gdb
+```bash
 (gdb) b <function name>
 (gdb) b main
 (gdb) b file.cpp:fcnName  # In case of multiple source files.
@@ -98,7 +98,7 @@ Simplest way of putting a breakpoint is using the function name or a line number
 
 `info` command provides information regarding different aspects. Shortcut is `i`.
 
-```gdb
+```bash
 (gdb) info breakpoints  # lists all the breakpoints/watchpoints.
 (gdb) info variables  # lists all the static/global variables.
 (gdb) info locals  # lists all the local variables in the current stack frame.
@@ -111,7 +111,7 @@ Simplest way of putting a breakpoint is using the function name or a line number
 
 `list` command displays the source code around the current point of execution.
 
-```gdb
+```bash
 (gdb) list - displays 10 lines of code.
 (gdb) list 12 - displays the code from line 12.
 (gdb) list 10,25 - displays the code from lines 10-25.
@@ -122,14 +122,14 @@ Simplest way of putting a breakpoint is using the function name or a line number
 
 `frame` command lets you move from one frame to another. Moving to the other frames enables to view the variables in that function.
 
-```gdb
+```bash
 (gdb) frame <frame number>
 (gdb) frame 1
 ```
 
 `print` command prints the value of the variable. Shortcut is `p`.
 
-```gdb
+```bash
 (gdb) print<format> var
 (gdb) print i
 (gdb) print &i
@@ -140,7 +140,7 @@ Simplest way of putting a breakpoint is using the function name or a line number
 
 `ptype` command prints the type of the variable.
 
-```gdb
+```bash
 (gdb) ptype var
 type = int
 ```
@@ -154,7 +154,7 @@ It comes with a number of formatting commands that provide precise control over
 * how many bytes you’d like to examine and
 * how you’d like to print them
 
-```gdb
+```bash
 (gdb) x &i
 
 (gdb) x/4xb &i
@@ -164,7 +164,7 @@ The flags indicate that I want to examine 4 values formatted as the 'x' numerals
 
 `set` command sets the variable to a given value.
 
-```gdb
+```bash
 (gdb) set var 2
 ```
 
@@ -186,27 +186,27 @@ Watchpoints are placed on variables. On giving `watch` comamnd, whenever the var
 
 This is similar to the breakpoints, except that breakpoints are placed on functions or lines, whereas watchpoints are placed on variables.
 
-```gdb
-(gdb) watch var1 - Pause when var1 value is modified.
-(gdb) rwatch var1 - Pause when var1 is read.
-(gdb) awatch var1 ` Pause when var1 is either read or written.
+```bash
+(gdb) watch var1  # Pause when var1 value is modified.
+(gdb) rwatch var1 # Pause when var1 is read.
+(gdb) awatch var1 # Pause when var1 is either read or written.
 ```
 
 `disable` command disables the watchpoint/breakpoint. This can be noticed by observing the enable column in the list of breakpoints obtained by `info` command.
 
-```gdb
+```bash
 (gdb) disable <watchpoint/breakpoint number>
 ```
 
 `delete` command deletes the provided watchpoint/breakpoint number. This deletes the breakpoint from the list.
 
-```gdb
+```bash
 (gdb) delete <watchpoint/breakpoint number>
 ```
 
 `start` command is the combination of the following two comamands.
 
-```gdb
+```bash
 (gdb) b main
 (gdb) run
 ```
@@ -219,7 +219,7 @@ However, sometimes it's useful to tell the debugger to stop at a break point onl
 
 You can specify a break condition when you set a breakpoint by appending the keyword if to a normal break statement
 
-```gdb
+```bash
 (gdb) break [position] if expression
 ```
 
@@ -227,7 +227,7 @@ In the above syntax position can be a function name or line number.
 
 If you already set a breakpoint at the desired position, you can use the condition command to add or change its break condition:
 
-```gdb
+```bash
 (gdb) condition bp_number [expression]
 ```
 
@@ -288,7 +288,7 @@ Another useful command of gdb debugger is the `disassemble` command. As its name
 
 For instance, if we want to disassemble `main` function. we just need to type
 
-```gdb
+```bash
 (gdb) disassemble main
 ```
 
@@ -296,7 +296,7 @@ For instance, if we want to disassemble `main` function. we just need to type
 
 Type commands for when breakpoint 2 is hit, one per line. End with a line saying just "end".
 
-```gdb
+```bash
 (gdb) command 2
 > p loop
 > end
